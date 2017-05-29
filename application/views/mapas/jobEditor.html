@@ -1,0 +1,278 @@
+<html>
+<head>
+  <title>OSM Print Maps Job Editor</title>
+  <link rel="stylesheet" href="css/jobEditor.css" />
+  <link rel="stylesheet" href="js/leaflet.css" />
+  <link rel="stylesheet" href="css/smoothness/jquery-ui-1.8.18.custom.css" />
+  <link id="favicon" rel="shortcut icon" href="images/beer.ico" />
+</head>
+<body>
+  <div id="header">
+    <h1>OSM Print Maps</h2>
+  </div> <!--header-->
+  <div id="tabs">
+    <ul>
+      <li><a href="#tabs-4">Home</a></li>
+      <li><a href="#tabs-1">Create Map</a></li>
+      <li><a href="#tabs-2">Output</a></li>
+      <li><a href="#tabs-3">Admin</a></li>
+    </ul>
+    
+    <div id='tabs-1'>
+      <div id="map">
+	Map Goes Here
+      </div>
+      <div id="sidebar">
+	<div id='accordion'>
+	  <ul>
+	    <li><a href="#renderer">General</a></li>
+	    <li><a href="#mapstyle">Style</a></li>
+	    <li><a href="#mapbook">Mapbook</a></li>
+	    <li><a href="#advancedOptions">Advanced</a></li>
+	  </ul>
+
+	  <div id="renderer">
+	    <label>Map Title:</label>
+	    <input id="titleInput" value="Map Title">
+	    <br/>
+	    <label>Map Type:</label>
+	    <SELECT id="rendererSelect">
+	      <option selected value="0">Simple Image</option>
+	      <option value="1">townguide</option>
+	      <option value="2">mapbook</option>
+	    </SELECT><br/>
+	    <label>Paper Size:</label>
+	    <SELECT id="paperSizeSelect">
+	      <option selected value="A4">A4</option>
+	      <option value="A3">A3</option>
+	      <option value="A2">A2</option>
+	      <option value="A1">A1</option>
+	      <option value="A0">A0</option>  
+	    </SELECT>
+	    <select id="paperOrientationSelect">
+	      <option selected value="portrait">Portrait</option>
+	      <option          value="landscape">Landscape</option>
+	    </select>
+	    <br/>
+	    <label>Map Centre (lon,lat):</label>
+	    <input id="mapCenterLon" type="text" size="5" value="lon"/>,
+	    <input id="mapCenterLat" type="text" size="5" value="lat"/>
+	    <br/>
+	    <!--
+	    <label>Map Size (w,h) km:</label>
+	    <input id="mapSizeW" type="text" size="3" value="5"/>,
+	    <input id="mapSizeH" type="text" size="3" value="5"/>
+	    <br/>
+	    -->
+	    <label>Map Scale:</label>
+	    <select id='mapScaleSelect'>
+	      <option value='10000'>1:10000</option>
+	      <option selected value='25000'>1:25000</option>
+	      <option value='50000'>1:50000</option>
+	      <option value='100000'>1:100000</option>
+	      <option value='250000'>1:250000</option>
+	      <option value='500000'>1:500000</option>
+	    </select>
+	  </div> <!--renderer-->
+	  
+	  <div id='mapstyle'>
+	    <label>Map Style:</label>
+	    <SELECT id="mapStyleSelect">
+	      <option selected value="Default OSM">Default OSM</option>
+	      <option disabled        value="Freemap">Freemap</option>
+	    </SELECT><br/>
+	    <label for="gridCheck">Include Grid?</label>
+	    <input type="checkbox" id="gridCheck"/>
+	    <label for="gridSpacingSelect">Grid Spacing</label>
+	    <select id="gridSpacingSelect">
+	      <option selected value="1">1 km</option>
+	      <option value="10">10 km</option>
+	      <option value="100">100 km</option>
+	    </select>
+	    <br/>
+	    <label for="contourCheck">Include Contour Lines?</label>
+	    <input type="checkbox" id="contourCheck" />
+	    <br/>
+	    <label for="hillshadeCheck">Include Hill Shading?</label>
+	    <input type="checkbox" id="hillshadeCheck"/>  
+	  </div> <!--mapStyle-->
+
+
+	  <div id="mapbook">
+	    Number of Pages in book (width x height):</br>
+	    <label for='mapbookNX'>Width</label>
+	    <input id='mapbookNX' size='2' value='2'/>
+	    <button id='mapbookNXPlus'>+</button>
+	    <button id='mapbookNXMinus'>-</button>
+	    <br/>
+	    <label for='mapbookNY'>Height</label>
+	    <input id='mapbookNY' size='2' value='2'/>
+	    <button id='mapbookNYPlus'>+</button>
+	    <button id='mapbookNYMinus'>-</button>
+	    <br/>
+	  </div>
+	  <div id="advancedOptions">
+	    <label for='outputResolutionSelect'>Output Resolution</label>
+	    <select id="outputResolutionSelect">
+	      <option selected value='100'>100 dpi</option>
+	      <option          value='300'>300 dpi</option>
+	      <option          value='600'>600 dpi</option>
+	    </select>
+	    <br/>
+	    <label for='mapProjectionSelect'>Map Projection</label>
+	    <select id='mapProjectionSelect'>
+	      <option selected value='merc'>Spherical Mercator</option>
+	      <option disabled value='osgb'>GB Ordnance Survey Projection</option>
+	    </select>
+	  </div> <!--advancedOptions-->
+	</div> <!-- accordion -->
+	
+	<a href="" id="permaLink">PermaLink</a> 
+	<button id="submitButton">Submit Job</button>
+	
+      </div> <!--sidebar-->
+    </div> <!--tabs-1-->
+
+    <div id='tabs-2'>
+      <button id="updateOutputListsButton">Update Lists</button>
+      <ul>
+	<li><a href="#outputComplete">Completed Jobs</a></li>
+	<li><a href="#outputQueued">Queued Jobs</a></li>
+	<li><a href="#outputFailed">Failed Jobs</a></li>
+      </ul>
+      <div id="outputComplete">
+	<div id="outputCompleteTable"></div>
+      </div>
+      <div id="outputQueued">
+	<div id="outputQueuedTable"></div>
+      </div>
+      <div id="outputFailed">
+	<div id="outputFailedTable"></div>
+      </div>
+    </div>
+    
+    <div id='tabs-3'> <!--Admin Pane-->
+      tabs-3
+    </div>
+
+    <div id='tabs-4'> <!--About Pane -->
+      <h2>Warning - This site is a work in progress - some bits will not work</h2>
+      <h2>OSM Print Maps</h2>
+      <p>This site is a tool to create printable maps from 
+	<a href="http://www.openstreetmap.org">OpenStreetMap</a> data.
+	Three styles of output are supported:
+	<ol>
+	  <li>Simple single page maps.</li>
+	  <li>'Townguide' maps with street index and highlighted points of 
+	    interest.</li>
+	  <li>'Mapbook' atlas style booklets with a larger are split over
+	    several pages.</li>
+	</ol>
+	A number of map styles are supported, and the user can select if
+	a grid, contour lines or hill shading (relief) is required.
+	The map is produced as a PDF file which can be downloaded for printing.
+      </p>
+
+      <h2>Getting Started</h2>
+      <p>To create a map you should:
+	<ol>
+	  <li>Select the "Create Map tab" to open the editor.</li>
+	  <li>Drag and zoom the on-screen map to show the area that you wish to create a printable map for.</li>
+	  <li>In the 'General Map Configuration', select the title 
+	    and paper size to be used for the output, and the style of 
+	    output required.</li>
+	  <li>In the 'Map Style Options' select whether a grid, contour lines
+	    or hill shading is required on the map.</li>
+	  <li>Press the 'Submit Job' button to create your map.  The output will appear in the 'Output' section after a few minutes.</li>
+	</ol>
+	If you have difficulty using the site, or have suggestions for
+	improvements, please contact 
+	<a href="mailto:grahamjones139@gmail.com">Graham Jones</a>.
+      </p>
+
+      <h2>What Works?</h2>
+      <p>Working things should be:
+	<ol>
+	  <li>Simple Map output (not townguide or mapbook)</li>
+	  <li>Default OSM map style</li>
+	  <li>Hillshading, contours and grid map style options</li>
+	</ol>
+      </p>
+
+      <h2>How it Works</h2>
+      <p>
+	The source code for the entire application is available on 
+	<a href="http://www.github.com/jones139/disrend">GitHub</a>.
+      </p>
+      <p>
+	The system comprises three distinct components:
+	<ol>
+	  <li>Web Front End - the job editor, which is a javascript application
+	    which runs in a web browser, and adds map request rendering
+	    jobs to a queue ready for processing.
+	  </li>
+	  <li>Queue API - The application programming interface (API) that
+	    handles the queue of jobs that need to be rendered into pdf maps.
+	    This runs on the web server that also serves the job editor web 
+	    front end.  This is written in php, and uses a mySql database
+	    so it will run on most commercial web hosting services.
+	  </li>
+	  <li>Job Processor Daemon - a programme that runs on a computer
+	    that periodically asks the Queue API if there are any job 
+	    rendering tasks in the queue.  If there is, it downloads the 
+	    request and processes it into a PDF map.  It then uses the 
+	    queue API to upload the results to the web server so they can
+	    be accessed by the user.
+	  </li>
+	</ol>
+      </p>
+
+      <p>Although not implemented yet, the intention is that the system will
+	support several job Processor Daemons, running on different computers.
+	This will be useful to allow lower power computers to be used - 
+	different people could maintain job processors that have databases
+	of different areas - if enough computers are involved, global coverage
+	could be achieved.
+      </p>
+	       
+      <h2>Contact</h2>
+      <p>If you have any queries (or would like to help get it working
+	properly!), pease contact 
+      <a href="mailto:grahamjones139@gmail.com">Graham Jones</a>.</p>
+    </div>
+
+
+
+
+
+</div> <!--tabs-->
+
+<div id="dialog" title="My Dialog">
+  <p>Dialog text goes here</p>
+</div>
+
+<script src="js/leaflet.js"></script>
+<script src="js/proj4js-compressed.js"></script> 
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/jquery-ui-1.8.18.custom.min.js"></script>
+<script src="js/geturl.js"></script>
+<script src="js/jobEditor.js"></script>
+
+<script>
+  $(function() {
+    $( "#dialog" ).dialog({
+      autoOpen: false,
+      show: "blind",
+      hide: "explode" 
+    });
+    //$("#accordion").accordion();
+  $("#accordion").tabs();
+    $("#tabs").tabs({selected : 0});
+    //$("#tabs").tabs();
+    $("#tabs-2").tabs();
+  });
+</script>
+</body>
+
+</html>
+
