@@ -23,7 +23,7 @@ $db['alumbrado']['password'] = '';
 
 $db['default']['hostname'] = '172.16.7.66';
 $db['default']['username'] = 'omsc';
-$db['default']['password'] = 'omsc'; 
+$db['default']['password'] = 'omsc';
 */
 
 $db['default']['database'] = 'dtmu';
@@ -94,6 +94,22 @@ $db['comando']['dbcollat'] = "utf8_general_ci";
 $db['comando']['swap_pre'] = "";
 $db['comando']['autoinit'] = TRUE;
 $db['comando']['stricton'] = FALSE;
+
+$db['video_camaras']['database'] = 'dtmu_video_camaras';
+$db['video_camaras']['dbdriver'] = 'mysql';
+$db['video_camaras']['dbprefix'] = "";
+$db['video_camaras']['pconnect'] = FALSE;
+$db['video_camaras']['db_debug'] = TRUE;
+$db['video_camaras']['cache_on'] = FALSE;
+$db['video_camaras']['cachedir'] = "";
+$db['video_camaras']['char_set'] = "utf8";
+$db['video_camaras']['dbcollat'] = "utf8_general_ci";
+$db['video_camaras']['swap_pre'] = "";
+$db['video_camaras']['autoinit'] = TRUE;
+$db['video_camaras']['stricton'] = FALSE;
+$db['video_camaras']['hostname'] = 'localhost';
+$db['video_camaras']['username'] = 'root';
+$db['video_camaras']['password'] = '';
 
 $capsule = new Capsule;
 
