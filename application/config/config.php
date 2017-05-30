@@ -18,8 +18,8 @@
 //$config['base_url']	= 'http://192.168.43.81:9090/observatorio_intendencia/';
 //$config['base_url']	= 'http://www.omsc.esy.es/observatorio_manitos/';
 //$config['base_url2']	= 'http://www.omsc.esy.es/observatorio_manitos/index.php';
-$config['base_url']	= 'http://localhost/direccion_tecnologias_mejoramiento_urbano_dev/';
-$config['base_url2']	= 'http://localhost/direccion_tecnologias_mejoramiento_urbano_dev/';
+$config['base_url']	= 'http://192.168.137.79/direccion_tecnologias_mejoramiento_urbano_dev/';
+$config['base_url2']	= 'http://192.168.137.79/direccion_tecnologias_mejoramiento_urbano_dev/';
 /*
 |--------------------------------------------------------------------------
 | Index File

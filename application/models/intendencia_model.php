@@ -145,6 +145,15 @@ class Intendencia_model extends CI_Model {
         return $db_prueba->count_all_results();
     }
 
+    function clausuras_general($tp, $distrito) {
+        $db_prueba = $this->load->database('intendencia', TRUE);
+        $db_prueba->where('id_tipo_operativo', $tp);
+        //      $db_prueba->where('id_distrito_operativo', $distrito);
+        $db_prueba->where('clausurado', 1);
+        $db_prueba->from('operativo');
+        return $db_prueba->count_all_results();
+    }
+
     function distritos($distrito) {
         $this->db->from('distrito');
         $this->db->where_not_in("id", 0);
@@ -238,6 +247,40 @@ class Intendencia_model extends CI_Model {
         return $productos->result();
     }
 
+    public function reporte_zonas_clausurado($distrito) {
+        $db_prueba = $this->load->database('intendencia', TRUE);
+        //     $db_prueba->limit(1);
+        //    $db_prueba->group_by('id_zona');
+        $db_prueba->join('zona', 'zona.idz = operativo.id_zona');
+        $db_prueba->join('tipo_operativo', 'tipo_operativo.id = operativo.id_tipo_operativo');
+        $db_prueba->join('intervencion', 'intervencion.id = operativo.id_intervencion');
+        //    $db_prueba->join('intervencion', 'intervencion.id = operativo.id_intervencion');
+
+        $db_prueba->where('id_distrito_operativo', $distrito);
+        $db_prueba->where('clausurado', 1);
+        $db_prueba->order_by('fecha', 'desc');
+        $db_prueba->from('operativo');
+        $productos = $db_prueba->get();
+        return $productos->result();
+    }
+
+    public function reporte_zonas_clausurado_general($distrito) {
+        $db_prueba = $this->load->database('intendencia', TRUE);
+        //     $db_prueba->limit(1);
+        //    $db_prueba->group_by('id_zona');
+        $db_prueba->join('zona', 'zona.idz = operativo.id_zona');
+        $db_prueba->join('tipo_operativo', 'tipo_operativo.id = operativo.id_tipo_operativo');
+        $db_prueba->join('intervencion', 'intervencion.id = operativo.id_intervencion');
+        //    $db_prueba->join('intervencion', 'intervencion.id = operativo.id_intervencion');
+        //    $db_prueba->where('id_distrito_operativo', $distrito);
+        
+        $db_prueba->where('clausurado', 1);
+         $db_prueba->order_by('fecha', 'desc');
+        $db_prueba->from('operativo');
+        $productos = $db_prueba->get();
+        return $productos->result();
+    }
+
     public function tipo_operativo_mes($tipo_operativo, $distrito, $mes) {
         $db_prueba = $this->load->database('intendencia', TRUE);
         $db_prueba->where('id_tipo_operativo', $tipo_operativo);
@@ -246,10 +289,11 @@ class Intendencia_model extends CI_Model {
         $db_prueba->from('operativo');
         return $db_prueba->count_all_results();
     }
-      public function tipo_operativo_mes_general($tipo_operativo,$distrito, $mes) {
+
+    public function tipo_operativo_mes_general($tipo_operativo, $distrito, $mes) {
         $db_prueba = $this->load->database('intendencia', TRUE);
         $db_prueba->where('id_tipo_operativo', $tipo_operativo);
-      //  $db_prueba->where('id_distrito_operativo', $distrito);
+        //  $db_prueba->where('id_distrito_operativo', $distrito);
         $db_prueba->where('mes', $mes);
         $db_prueba->from('operativo');
         return $db_prueba->count_all_results();
@@ -263,10 +307,11 @@ class Intendencia_model extends CI_Model {
         $db_prueba->from('operativo');
         return $db_prueba->count_all_results();
     }
+
     public function tipo_operativo_mes_general_total($distrito, $mes) {
         $db_prueba = $this->load->database('intendencia', TRUE);
         //    $db_prueba->where('id_tipo_operativo', $tipo_operativo);
-       // $db_prueba->where('id_distrito_operativo', $distrito);
+        // $db_prueba->where('id_distrito_operativo', $distrito);
         $db_prueba->where('mes', $mes);
         $db_prueba->from('operativo');
         return $db_prueba->count_all_results();
@@ -276,6 +321,15 @@ class Intendencia_model extends CI_Model {
         $db_prueba = $this->load->database('intendencia', TRUE);
         //    $db_prueba->where('id_tipo_operativo', $tipo_operativo);
         $db_prueba->where('id_distrito_operativo', $distrito);
+        ///   $db_prueba->where('mes', $mes);
+        $db_prueba->from('operativo');
+        return $db_prueba->count_all_results();
+    }
+
+    public function tipo_operativo_total_general($distrito) {
+        $db_prueba = $this->load->database('intendencia', TRUE);
+        //    $db_prueba->where('id_tipo_operativo', $tipo_operativo);
+        // $db_prueba->where('id_distrito_operativo', $distrito);
         ///   $db_prueba->where('mes', $mes);
         $db_prueba->from('operativo');
         return $db_prueba->count_all_results();
@@ -296,7 +350,7 @@ class Intendencia_model extends CI_Model {
         //    $db_prueba->where('id_tipo_operativo', $tipo_operativo);
         $db_prueba->where('id_distrito_operativo', $distrito);
         $db_prueba->where('clausurado', 1);
-          $db_prueba->where('mes', $mes);
+        $db_prueba->where('mes', $mes);
         $db_prueba->from('operativo');
         return $db_prueba->count_all_results();
     }
@@ -1218,7 +1272,7 @@ class Intendencia_model extends CI_Model {
 
         // $this->db->join('division', 'division.id = felcc_delitos.id_division');
         if ($leyenda == 0) {
-
+            
         } else {
             //        $this->db->where('id_division ', $leyenda);
         }

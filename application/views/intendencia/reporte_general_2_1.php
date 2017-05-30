@@ -256,7 +256,7 @@
                               </tr>
                               <tr>
                                 <td class="NEGRO">TOTALES</td>
-                                <td colspan="12" align="center"  class="negrita"> <?php echo $this->intendencia_model->tipo_operativo_total($distrito);?></td>
+                                <td colspan="12" align="center"  class="negrita"> <?php echo $this->intendencia_model->tipo_operativo_total_general($distrito);?></td>
                               </tr>
       </table>
                              <div class="row">

@@ -5,3 +5,4 @@ $route['reporte_poste']= 'reportes/reporte/poste';
 $route['detalle_area/(:any)']= 'reportes/reporte/reportePoste/$1';
 $route['camaras_ue']= 'camaras_ue/camaras_ue/register_ue';
 $route['actividades_economicas']= 'actividades_economicas/actividades_economicas/registro';
+

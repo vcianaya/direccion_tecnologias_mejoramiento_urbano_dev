@@ -18,6 +18,9 @@ $db['comando']['password'] = '';
 $db['alumbrado']['hostname'] = 'localhost';
 $db['alumbrado']['username'] = 'root';
 $db['alumbrado']['password'] = '';
+$db['dtmu_video_camaras']['hostname'] = 'localhost';
+$db['dtmu_video_camaras']['username'] = 'root';
+$db['dtmu_video_camaras']['password'] = '';
 
 /*
 
@@ -94,6 +97,19 @@ $db['comando']['dbcollat'] = "utf8_general_ci";
 $db['comando']['swap_pre'] = "";
 $db['comando']['autoinit'] = TRUE;
 $db['comando']['stricton'] = FALSE;
+
+$db['dtmu_video_camaras']['database'] = 'dtmu_video_camaras';
+$db['dtmu_video_camaras']['dbdriver'] = 'mysql';
+$db['comando']['dbprefix'] = "";
+$db['dtmu_video_camaras']['pconnect'] = FALSE;
+$db['dtmu_video_camaras']['db_debug'] = TRUE;
+$db['dtmu_video_camaras']['cache_on'] = FALSE;
+$db['dtmu_video_camaras']['cachedir'] = "";
+$db['dtmu_video_camaras']['char_set'] = "utf8";
+$db['dtmu_video_camaras']['dbcollat'] = "utf8_general_ci";
+$db['dtmu_video_camaras']['swap_pre'] = "";
+$db['dtmu_video_camaras']['autoinit'] = TRUE;
+$db['dtmu_video_camaras']['stricton'] = FALSE;
 
 $capsule = new Capsule;
 

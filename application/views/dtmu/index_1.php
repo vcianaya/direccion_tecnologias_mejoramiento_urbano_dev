@@ -17,10 +17,9 @@
 	src: url(<?php echo base_url() ?>assets/fonts/Probert.otf);
 } 
         </style>
-    <body style="background-image: url(<?php echo base_url() ?>assets/logos/stss.png);
-          background-repeat: no-repeat; background-size: 400px; background-position-x: 20px; background-position-y:60px ">
+    <body>
         <br><br><br>
-        <div id="particles-js" style="position:absolute; z-index:0;width:100%;height:85%"></div>
+ 
         <div class="row" >
             <div class="col-md-10 col-xs-offset-1" >
                 <div class="wrap">
@@ -63,10 +62,10 @@
         <script src=" <?php echo base_url() ?>assets/js/module/jquery.reflection.js"></script>
         <script src=" <?php echo base_url() ?>assets/js/module/jquery.cloud9carousel.js"></script>
         <!-- scripts -->
-        <script src="<?php echo base_url() ?>assets/js/particles.js"></script>
-        <script src="<?php echo base_url() ?>assets/js/app.js"></script>
 
-        <script src="<?php echo base_url() ?>assets/js/lib/stats.js"></script>        
+
+
+      
 
         <script type="text/javascript">
             $(function () {
