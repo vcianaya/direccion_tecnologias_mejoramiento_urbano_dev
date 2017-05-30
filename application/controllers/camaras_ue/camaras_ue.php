@@ -6,6 +6,7 @@ class Camaras_ue extends CI_Controller {
     public function register_ue()
     {
         $this->load->view('master/header');
+        $this->load->view('camaras_ue/registrar_colegios');
         $this->load->view('master/footer');
     }
 

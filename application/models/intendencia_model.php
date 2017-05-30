@@ -1218,7 +1218,7 @@ class Intendencia_model extends CI_Model {
 
         // $this->db->join('division', 'division.id = felcc_delitos.id_division');
         if ($leyenda == 0) {
-            
+
         } else {
             //        $this->db->where('id_division ', $leyenda);
         }
@@ -1696,7 +1696,7 @@ class Intendencia_model extends CI_Model {
         $this->db->join('departamento', 'departamento.id = felcv.departamento');
         $this->db->join('provincia', 'provincia.id = felcv.provincia');
         $this->db->join('municipio', 'municipio.id = felcv.municipio');
-        // 
+        //
         $this->db->join('unidades_epis_modulos', 'unidades_epis_modulos.id = felcv.unidades_epis_modulos');
         $this->db->join('distrito', 'distrito.id = felcv.distrito');
         $this->db->join('zona', 'zona.id = felcv.zona');
