@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <title>Sistemas | DTMU</title>
     <!-- Bootstrap Core CSS -->
-    <link href="<?php echo base_url() ?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- MetisMenu CSS -->
-    <link href="<?php echo base_url() ?>assets/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
-    <!-- Timeline CSS -->
-    <link href="<?php echo base_url() ?>assets/dist/css/timeline.css" rel="stylesheet">
+    <!--Select2-->
+    <link href="<?php echo base_url() ?>assets/plugin/select2/css/select2.min.css" rel="stylesheet" type="text/css">
+    <!--Datepicker-->
+    <link href="<?php echo base_url() ?>assets/plugin/datepicker/css/datepicker.css" rel="stylesheet" type="text/css">
+
+    <link href="<?php echo base_url() ?>assets/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/plugin/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="<?php echo base_url() ?>assets/dist/css/sb-admin-2.css" rel="stylesheet">
     <!-- Custom Fonts -->
-    <link href="<?php echo base_url() ?>assets/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url() ?>assets/plugin/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="icon" href="<?=base_url()?>assets/logos/icon.png" type="image/png">
     <link href="<?php echo base_url() ?>assets/css/style_general.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url() ?>assets/css/AdminLTE.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <di v id="wrapper">
