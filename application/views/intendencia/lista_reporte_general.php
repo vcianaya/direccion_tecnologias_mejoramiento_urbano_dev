@@ -36,7 +36,7 @@
 
                 <div class="accordion" id="reports">
                     <div class="panel panel-default" id="area-1">
-                        <div class="panel-heading collapsed" data-toggle="collapse" data-target="#report-1" data-parent="#reports" aria-expanded="false">1. Cantidad de Operativos realizados segun la Actividad Comercial</div>
+                        <div class="panel-heading collapsed" data-toggle="collapse" data-target="#report-1" data-parent="#reports" aria-expanded="false">1. Grafico - Cantidad de Operativos realizados segun la Actividad Comercial</div>
                         <div id="report-1" class="collapse panel-body display" >
 
                             <div class="col-md-4"> 
@@ -54,18 +54,18 @@
 
                                 <button type="submit" class="btn btn-primary">Ver Reporte </button>
                                 <?php echo form_close(); ?>
-                                  <label>Reporte General </label>
+                                <label>Reporte General </label>
                                 <?php echo form_open('intendencia/reporte_actividad_1_1'); ?>
                                 <button type="submit" class="btn btn-primary">Ver Reporte General </button>
                                 <input name="pregunta" type="hidden" id="pregunta" value="1">
-                                <input name="distrito" type="hidden" id="pregunta" value="0">
+                                <input name="distrito" type="hidden" id="distrito" value="0">
                                 <?php echo form_close(); ?>
                             </div>
 
                         </div>
                     </div>
                     <div class="panel panel-default" id="area-2">
-                        <div class="panel-heading collapsed" data-toggle="collapse" data-target="#report-2" data-parent="#reports" aria-expanded="false">2. Cantidad de Operativos realizados por Mes</div>
+                        <div class="panel-heading collapsed" data-toggle="collapse" data-target="#report-2" data-parent="#reports" aria-expanded="false">2. Tabla - Cantidad de Operativos realizados por Mes</div>
                         <div id="report-2" class="collapse panel-body display" aria-expanded="false">
                             <div class="col-md-4"> 
                                 <?php echo form_open('intendencia/reporte_actividad_2'); ?>
@@ -82,18 +82,18 @@
 
                                 <button type="submit" class="btn btn-primary">Ver Reporte </button>
                                 <?php echo form_close(); ?>
-                                  <label>Reporte General </label>
+                                <label>Reporte General </label>
                                 <?php echo form_open('intendencia/reporte_actividad_2_1'); ?>
                                 <button type="submit" class="btn btn-primary">Ver Reporte General </button>
                                 <input name="pregunta" type="hidden" id="pregunta" value="1">
-                                <input name="distrito" type="hidden" id="pregunta" value="0">
+                                <input name="distrito" type="hidden" id="distrito" value="0">
                                 <?php echo form_close(); ?>
                             </div>
                         </div>
                     </div>
 
                     <div class="panel panel-default" id="area-3">
-                        <div class="panel-heading collapsed" data-toggle="collapse" data-target="#report-3" data-parent="#reports" aria-expanded="false">3. Cantidad de Clausuras Realizadas por Mes y Tipo de Actividad</div>
+                        <div class="panel-heading collapsed" data-toggle="collapse" data-target="#report-3" data-parent="#reports" aria-expanded="false">3. Tabla - Cantidad de Clausuras Realizadas por Mes y Tipo de Actividad</div>
                         <div id="report-3" class="collapse panel-body display" aria-expanded="false">
                             <div class="col-md-4"> 
                                 <?php echo form_open('intendencia/reporte_actividad_3'); ?>
@@ -115,7 +115,7 @@
                     </div>
 
                     <div class="panel panel-default" id="area-4">
-                        <div class="panel-heading collapsed" data-toggle="collapse" data-target="#report-4" data-parent="#reports" aria-expanded="false">4. Situacion Legal de las Actividades Comerciales</div>
+                        <div class="panel-heading collapsed" data-toggle="collapse" data-target="#report-4" data-parent="#reports" aria-expanded="false">4. Tabla - Situacion Legal de las Actividades Comerciales Por Urbanizaciones</div>
                         <div id="report-4" class="collapse panel-body display" aria-expanded="false">
                             <div class="col-md-4"> 
                                 <?php echo form_open('intendencia/reporte_actividad_4'); ?>
@@ -136,7 +136,7 @@
                         </div>
                     </div>
                     <div class="panel panel-default" id="area-5">
-                        <div class="panel-heading collapsed" data-toggle="collapse" data-target="#report-5" data-parent="#reports" aria-expanded="false">5. Clausuras Realizadas Por Actividad Comercial - Gestion 2017</div>
+                        <div class="panel-heading collapsed" data-toggle="collapse" data-target="#report-5" data-parent="#reports" aria-expanded="false">5. Grafico - Clausuras Realizadas Por Actividad Comercial - Gestion 2017</div>
                         <div id="report-5" class="collapse panel-body display" >
 
                             <div class="col-md-4"> 
@@ -154,7 +154,12 @@
 
                                 <button type="submit" class="btn btn-primary">Ver Reporte </button>
                                 <?php echo form_close(); ?>
-
+                                <label>Reporte General </label>
+                                <?php echo form_open('intendencia/reporte_actividad_5_1'); ?>
+                                <button type="submit" class="btn btn-primary">Ver Reporte General </button>
+                                <input name="pregunta" type="hidden" id="pregunta" value="5">
+                                <input name="distrito" type="hidden" id="distrito" value="0">
+                                <?php echo form_close(); ?>
                             </div>
 
                         </div>
@@ -183,12 +188,46 @@
                                 <?php echo form_open('intendencia/reporte_actividad_6_1'); ?>
                                 <button type="submit" class="btn btn-primary">Ver Reporte General </button>
                                 <input name="pregunta" type="hidden" id="pregunta" value="6">
-                                <input name="distrito" type="hidden" id="pregunta" value="0">
+                                <input name="distrito" type="hidden" id="distrito" value="0">
                                 <?php echo form_close(); ?>
                             </div>
 
                         </div>
                     </div>
+                    
+                     <div class="panel panel-default" id="area-7">
+                        <div class="panel-heading collapsed" data-toggle="collapse" data-target="#report-7" data-parent="#reports" aria-expanded="false">7. Tabla - Actividades Clausuradas</div>
+                        <div id="report-7" class="collapse panel-body display" > 
+
+                            <div class="col-md-4"> 
+                                <?php echo form_open('intendencia/reporte_actividad_7'); ?>
+                                <input name="pregunta" type="hidden" id="pregunta" value="7">
+                                <div class="form-group">
+                                    <label>Distritos </label>
+                                    <select name="distrito" id="distrito" class="form-control" required="true">
+                                        <option value="">Seleccione un distrito</option>
+                                        <?php foreach ($distrito as $pr) { ?>
+                                            <option value="<?= $pr->id ?>"><?= $pr->nombre_distrito ?></option>
+                                        <?php } ?>	
+                                    </select>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Ver Reporte Por Distritos</button>
+                                <?php echo form_close(); ?>
+                                <label>Reporte General </label>
+                                <?php echo form_open('intendencia/reporte_actividad_7_1'); ?>
+                                <button type="submit" class="btn btn-primary">Ver Reporte General </button>
+                                <input name="pregunta" type="hidden" id="pregunta" value="7">
+                                <input name="distrito" type="hidden" id="distrito" value="0">
+                                <?php echo form_close(); ?>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    
                 </div>
 
 

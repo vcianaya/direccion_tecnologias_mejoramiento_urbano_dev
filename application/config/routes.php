@@ -10,3 +10,4 @@ $route['register_ue']= 'camaras_ue/camaras_ue/register_ue';
 
 /******++++++++++++++++++++++++CODIGOOOOOOOOSSSS JUANQUI++++++++++++++++++*****/
 $route['actividades_economicas']= 'actividades_economicas/actividades_economicas/registro';
+

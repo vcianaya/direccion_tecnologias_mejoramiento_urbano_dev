@@ -16,43 +16,33 @@
 	font-family: "probert";
 	src: url(<?php echo base_url() ?>assets/fonts/Probert.otf);
 } 
+ // text-shadow: 2px 2px 10px #0044cc !important 
         </style>
-    <body style="background-image: url(<?php echo base_url() ?>assets/logos/stss.png);
-          background-repeat: no-repeat; background-size: 400px; background-position-x: 20px; background-position-y:60px ">
+    <body>
         <br><br><br>
-        <div id="particles-js" style="position:absolute; z-index:0;width:100%;height:85%"></div>
+ 
         <div class="row" >
             <div class="col-md-10 col-xs-offset-1" >
                 <div class="wrap">
-                    <strong><p id="item-title" style="color: #000022; font-size: 70px; font-family: probert;">&nbsp;</p></strong> 
+                    <strong><p id="item-title" style="color: rgb(185, 148, 39); font-size: 40px; font-family: probert; text-shadow: 2px 2px 10px #000000 !important ">&nbsp;</p></strong> 
                     <div id="showcase" class="noselect" >
                         <a href="<?php echo base_url() ?>intendencia">
-                            <img class="cloud9-item" src="<?php echo base_url() ?>assets/browsers/intendencia.png" alt="INTENDENCIA" >
+                            <img class="cloud9-item" src="<?php echo base_url() ?>assets/browsers/smsc_logo.png" alt="SECRETARIA MUNICIPAL DE DESARROLLO SOCIAL" >
                         </a>
                         <a href="#">
-                            <img class="cloud9-item" src="<?php echo base_url() ?>assets/browsers/monitoreo.png" alt="MONITOREO">
+                            <img class="cloud9-item" src="<?php echo base_url() ?>assets/browsers/smdh_logo.png" alt="SECRETARIA MUNICIPAL DE DESARROLLO HUMANO">
                         </a>
                         <a href="#">
-                            <img class="cloud9-item" src="<?php echo base_url() ?>assets/browsers/equipamiento.png" alt="EQUIPAMIENTO">
+                            <img class="cloud9-item" src="<?php echo base_url() ?>assets/browsers/smds_logo.png" alt="SECRETARIA MUNICIPAL DE DESARROLLO SOCIAL">
                         </a>
                         <a href="#">
-                            <img class="cloud9-item" src="<?php echo base_url() ?>assets/browsers/capas.png" alt="CAPAS" >
+                            <img class="cloud9-item" src="<?php echo base_url() ?>assets/browsers/smpu_logo.png" alt="SECRETARIA MUNICIPAL DE PLANIFICACION E INFRAESTRUCTURA URBANA" >
                         </a>
                         <a href="#">
-                            <img class="cloud9-item" src="<?php echo base_url() ?>assets/browsers/policia.png" alt="COMANDO">
+                            <img class="cloud9-item" src="<?php echo base_url() ?>assets/browsers/smus_logo.png" alt="SECRETARIA MUNICIPAL DE MOVILIDAD URBANA SOSTENIBLE">
                         </a>
-                        <a href="<?php echo base_url() ?>monitoreo_datos/reporte_por_mes">
-                            <img class="cloud9-item" src="<?php echo base_url() ?>assets/browsers/monitoreo_datos.png" alt="MONITOREO DE DATOS">
-                        </a>
-                        <a href="#">
-                            <img class="cloud9-item" src="<?php echo base_url() ?>assets/browsers/alumbrado_publico.png" alt="ALUMBRADO PUBLICO">
-                        </a>
-                        <a href="#">
-                            <img class="cloud9-item" src="<?php echo base_url() ?>assets/browsers/inversion_publica.png" alt="INVERSION PUBLICA">
-                        </a>
-                        <a href="#">
-                            <img class="cloud9-item" src="<?php echo base_url() ?>assets/browsers/otros.png" alt="OTROS">
-                        </a>
+                      
+                     
                         
                     </div>
 
@@ -63,10 +53,10 @@
         <script src=" <?php echo base_url() ?>assets/js/module/jquery.reflection.js"></script>
         <script src=" <?php echo base_url() ?>assets/js/module/jquery.cloud9carousel.js"></script>
         <!-- scripts -->
-        <script src="<?php echo base_url() ?>assets/js/particles.js"></script>
-        <script src="<?php echo base_url() ?>assets/js/app.js"></script>
 
-        <script src="<?php echo base_url() ?>assets/js/lib/stats.js"></script>        
+
+
+      
 
         <script type="text/javascript">
             $(function () {

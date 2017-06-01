@@ -129,5 +129,4 @@ $capsule->setAsGlobal();
 // Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
 $capsule->bootEloquent();
 
-/* End of file database.php */
-/* Location: ./application/config/database.php */
+

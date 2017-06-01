@@ -103,7 +103,8 @@ class Intendencia extends CI_Controller {
         $this->load->view('header');
         $this->load->view('intendencia/reporte_general_1', $data);
     }
-  public function reporte_actividad_1_1() {
+
+    public function reporte_actividad_1_1() {
         $this->load->library('highcharts');
         $distrito = $this->input->post('distrito');
         $pregunta = $this->input->post('pregunta');
@@ -156,6 +157,7 @@ class Intendencia extends CI_Controller {
         $this->load->view('header');
         $this->load->view('intendencia/reporte_general_1_1', $data);
     }
+
     public function reporte_actividad_2() {
 
         $distrito = $this->input->post('distrito');
@@ -169,6 +171,7 @@ class Intendencia extends CI_Controller {
         $this->load->view('header');
         $this->load->view('intendencia/reporte_general_2', $data);
     }
+
     public function reporte_actividad_2_1() {
 
         $distrito = $this->input->post('distrito');
@@ -219,6 +222,37 @@ class Intendencia extends CI_Controller {
         $graph_data = $this->_data_clausuras();
         $this->highcharts->set_type('column'); // drauwing type
         $this->highcharts->set_title('Grafico Realizadas Pos Actividad Comercial - Gestion 2017', 'Distrito ' . $distrito); // set chart title: title, subtitle(optional)
+        $this->highcharts->set_axis_titles('language', 'Dias'); // axis titles: x axis,  y axis
+
+        $this->highcharts->set_xAxis($graph_data['axis']); // pushing categories for x axis labels
+        $this->highcharts->set_serie($graph_data['users']); // the first serie
+        //   $this->highcharts->set_serie($graph_data['popul']); // second serie
+        // we can user credits option to make a link to the source article. 
+        // it's possible to pass an object instead of array (but object will be converted to array by the lib)
+        //  @$credits->href = 'http://www.internetworldstats.com/stats7.htm';
+        @$credits->text = "DATOS PROCESADOS POR LA DIRECCION DE TECNOLOGIAS Y MEJORAMIENTO URBANO";
+        $this->highcharts->set_credits($credits);
+
+        $this->highcharts->render_to('my_div'); // choose a specific div to render to graph
+
+        $data['charts2'] = $this->highcharts->render();
+
+        $data['distrito'] = $this->input->post('distrito');
+        $data['reporte'] = $this->intendencia_model->reporte_especifico($pregunta, $distrito);
+        //  $data['operativos'] = $this->mapa_model->get_markers_general($leyenda);
+        // $data['tipo_operativo'] = $this->mapa_model->tipo_operativo($tipo_operativo);
+        $data['titulo'] = 'Bienvenido de nuevo ' . $this->session->userdata('perfil');
+        $this->load->view('header');
+        $this->load->view('intendencia/reporte_general_5', $data);
+    }
+
+    public function reporte_actividad_5_1() {
+        $this->load->library('highcharts');
+        $distrito = $this->input->post('distrito');
+        $pregunta = $this->input->post('pregunta');
+        $graph_data = $this->_data_clausuras_general();
+        $this->highcharts->set_type('column'); // drauwing type
+        $this->highcharts->set_title('Grafico Realizadas Pos Actividad Comercial - Gestion 2017', 'General '); // set chart title: title, subtitle(optional)
         $this->highcharts->set_axis_titles('language', 'Dias'); // axis titles: x axis,  y axis
 
         $this->highcharts->set_xAxis($graph_data['axis']); // pushing categories for x axis labels
@@ -359,6 +393,35 @@ class Intendencia extends CI_Controller {
         $this->load->view('intendencia/reporte_general_6_1', $data);
     }
 
+    public function reporte_actividad_7() {
+
+        $distrito = $this->input->post('distrito');
+        $pregunta = $this->input->post('pregunta');
+
+        $data['distrito'] = $this->input->post('distrito');
+        $data['reporte'] = $this->intendencia_model->reporte_especifico($pregunta, $distrito);
+        $data['zona'] = $this->intendencia_model->reporte_zonas_clausurado($distrito);
+        //  $data['operativos'] = $this->mapa_model->get_markers_general($leyenda);
+        // $data['tipo_operativo'] = $this->mapa_model->tipo_operativo($tipo_operativo);
+        $data['titulo'] = 'Bienvenido de nuevo ' . $this->session->userdata('perfil');
+        $this->load->view('header');
+        $this->load->view('intendencia/reporte_general_7', $data);
+    }
+      public function reporte_actividad_7_1() {
+
+        $distrito = $this->input->post('distrito');
+        $pregunta = $this->input->post('pregunta');
+
+        $data['distrito'] = $this->input->post('distrito');
+        $data['reporte'] = $this->intendencia_model->reporte_especifico($pregunta, $distrito);
+        $data['zona'] = $this->intendencia_model->reporte_zonas_clausurado_general($distrito);
+        //  $data['operativos'] = $this->mapa_model->get_markers_general($leyenda);
+        // $data['tipo_operativo'] = $this->mapa_model->tipo_operativo($tipo_operativo);
+        $data['titulo'] = 'Bienvenido de nuevo ' . $this->session->userdata('perfil');
+        $this->load->view('header');
+        $this->load->view('intendencia/reporte_general_7_1', $data);
+    }
+
     public function _data_clausuras() {
         $distrito = $this->input->post('distrito');
         $l = $this->intendencia_model->clausuras(2, $distrito);
@@ -368,6 +431,26 @@ class Intendencia extends CI_Controller {
         $v = $this->intendencia_model->clausuras(14, $distrito);
         $s = $this->intendencia_model->clausuras(12, $distrito);
         $d = $this->intendencia_model->clausuras(5, $distrito);
+
+        $data['users']['data'] = array($l, $m, $mi, $j, $v, $s, $d);
+        $data['users']['name'] = 'Operativos ';
+        // $data['popul']['data'] = array(1277528133, 1365524982, 420469703, 126804433, 250372925);
+        // $data['popul']['name'] = 'World Population';
+        $data['axis']['categories'] = array('BARES, DISCOTECAS Y CANTINAS', 'EXPENDIO Y VENTA DE ALIMENTOS', 'HORNO PANIFICADORA',
+            'HOTELES, MOTELES Y ALOJAMIENTOS', 'INTERNET', 'LENOCINIO', 'GRANJAS');
+
+        return $data;
+    }
+
+    public function _data_clausuras_general() {
+        $distrito = $this->input->post('distrito');
+        $l = $this->intendencia_model->clausuras_general(2, $distrito);
+        $m = $this->intendencia_model->clausuras_general(6, $distrito);
+        $mi = $this->intendencia_model->clausuras_general(10, $distrito);
+        $j = $this->intendencia_model->clausuras_general(8, $distrito);
+        $v = $this->intendencia_model->clausuras_general(14, $distrito);
+        $s = $this->intendencia_model->clausuras_general(12, $distrito);
+        $d = $this->intendencia_model->clausuras_general(5, $distrito);
 
         $data['users']['data'] = array($l, $m, $mi, $j, $v, $s, $d);
         $data['users']['name'] = 'Operativos ';

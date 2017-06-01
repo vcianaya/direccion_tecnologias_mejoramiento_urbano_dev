@@ -8,7 +8,35 @@ class Monitoreo_model extends CI_Model {
     public function __construct() {
         parent::__construct();
     }
+ public function tipo_operativo_general($tipo_operativo) {
+        $db_prueba = $this->load->database('intendencia', TRUE);
+        $db_prueba->where('id_tipo_operativo', $tipo_operativo);
+        //   $db_prueba->where('id_distrito_operativo', $distrito);
+        $db_prueba->from('operativo');
+        return $db_prueba->count_all_results();
+    }
+    public function tipo_operativo_mes($mes) {
+        $db_prueba = $this->load->database('intendencia', TRUE);
 
+        $db_prueba->where('mes', $mes);
+        $db_prueba->from('operativo');
+        return $db_prueba->count_all_results();
+    }
+  public function tipo_operativo_mes_general() {
+        $db_prueba = $this->load->database('intendencia', TRUE);
+      
+        //  $db_prueba->where('id_distrito_operativo', $distrito);
+     //   $db_prueba->where('mes', $mes);
+        $db_prueba->from('operativo');
+        return $db_prueba->count_all_results();
+    }
+     public function tipo_operativo_distrito($distrito) {
+        $db_prueba = $this->load->database('intendencia', TRUE);
+
+        $db_prueba->where('id_distrito_operativo', $distrito);
+        $db_prueba->from('operativo');
+        return $db_prueba->count_all_results();
+    }
     function lunes($tipo_operativo, $distrito, $fecha_inicio, $fecha_fin, $dat) {
         $this->db->from('monitoreo');
         $this->db->where('fecha BETWEEN "' . date('Y-m-d', strtotime($fecha_inicio)) . '" and "' . date('Y-m-d', strtotime($fecha_fin)) . '"');

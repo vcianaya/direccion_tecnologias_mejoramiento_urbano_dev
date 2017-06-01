@@ -30,8 +30,9 @@ class Editor extends CI_Controller {
             redirect(base_url() . 'login');
         }
         $data['titulo'] = 'Bienvenido de nuevo ' . $this->session->userdata('perfil');
-        $this->load->view('header');
+        $this->load->view('master/header');
         $this->load->view('dtmu/index_1', $data);
+       // $this->load->view('footer');
     }
 
     public function llenado_datos() {
